@@ -16,6 +16,7 @@ function addTask() {
 li.textContent = taskText;
 const removeButton = document.createElement("button");
 removeButton.textContent = "Remove";
+removeButton.classList.add("remove-btn");
 
 removeButton.onclick = function() {
     li.remove();
