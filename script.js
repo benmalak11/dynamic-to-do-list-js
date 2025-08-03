@@ -30,5 +30,23 @@ taskInput.addEventListener("keypress", function(event) {
   if (event.key === "Enter") {
     addTask();
   }
+
+  function loadTasks() {
+    const storedTasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+    storedTasks.forEach(taskText => addTask(taskText, false)); 
+
+    function addTask(taskText, save = true) {
+    // منطق إنشاء المهمة يبقى كما هو
+
+    if (save) {
+        const storedTasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+        storedTasks.push(taskText);
+        localStorage.setItem('tasks', JSON.stringify(storedTasks));
+    }
+}
+document.addEventListener('DOMContentLoaded', () => {
+    loadTasks();
+    // كود التهيئة الآخر
+});
 });
 });
